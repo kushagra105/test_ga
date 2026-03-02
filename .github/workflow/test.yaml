@@ -1,0 +1,16 @@
+steps:
+  - uses: actions/checkout@v4
+  - run: mkdir -p path/to/artifact
+  - run: echo hello > path/to/artifact/world.txt
+
+  - name: Upload a directory
+    uses: actions/upload-artifact@v4
+    with:
+      name: my-artifact-directory
+      path: path/to/artifact/ # Use a trailing slash to indicate a directory
+
+  - name: Upload an individual file
+    uses: actions/upload-artifact@v4
+    with:
+      name: my-artifact-file
+      path: path/to/artifact/world.txt
